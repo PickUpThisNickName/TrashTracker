@@ -1,12 +1,46 @@
+**Описание проекта**
 
-script and model are located in an overlaying folder
-name of model needs to be "best.pt"
+Проект представляет решение кейса в рамках хакатона. Согласно заданию необходимо представить решение для распознавания изображений твердых отходов среди потока фреймов, снятых с конвеерной ленты пункта сортировки ТБО. Решение должно создавать файлы результатов в определенном формате.
 
-start script and enter sample name "sampleG"
+Структура результатов:  
+```
+├── sample_1
+│   ├── output.txt
+│   ├── frames_output
+│   │   ├── 0001.txt
+│   │   ├── 0002.txt
+│   │   ├──...
 
-within this folder needs to a subfolder named "frames_rgb"
+`sample_1` - название сэмпла;  
+`output.txt` - результаты подсчета объектов по всему конвейеру;  
+`0001.txt` - результаты подсчета объектов на конкретном фрейме (формат файлов - `{номер фрейма}.txt`).  
 
-within this subfolder needs to be pictures with ending *.png
+Пример содержания выходных файлов (`output.txt` и `{номер фрейма}.txt`):
+```
+10
+15
+14
+12
+```  
+Выше пеерчислен пример для существующих по условиям классов - wood, glass, plastic, metal соответственно.
 
-the program creates output.txt with the total number of tracked items and a folder "frames_output" with a lot of "{image_name}.txt" files containing the numbers for each image
+Предлагаемое решение соответствует условиям кейса и производит подсчет (трекинг) объектов указанных классов по всему семплу и по каждому фрейму в отдельности.
 
+**Стек разработки**
+
+Python3 + ultralytics YOLO8
+
+**Условия запуска**
+
+Должен быть установлен Python версии 311 или выше. Должен быть установлен пакет ultralytics (pip install ultralytics).
+Имя модели должно быть «best.pt». Для работы необходимы входные данные определенного формата, картинки в формате png
+
+├── sample_1
+│   ├── frames_rgb
+│   │   ├── 0001.png
+│   │   ├── 0002.png
+│   │   ├──...
+
+**Запуск**
+
+Запустите скрипт VR_IT_tracker.py с помощью команды python VR_IT_tracker.py в powershell, cmd или другой shell. Далее введите имя папки с входными данными.
