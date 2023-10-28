@@ -44,3 +44,7 @@ Python3 + ultralytics YOLO8
 **Запуск**
 
 Запустите скрипт VR_IT_tracker.py с помощью команды python VR_IT_tracker.py в powershell, cmd или другой shell. Далее введите имя папки с входными данными.
+
+**Обучение**
+
+Скрипт обучения в файле train.py.
